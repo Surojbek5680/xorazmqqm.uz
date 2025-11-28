@@ -41,21 +41,21 @@
   <button onclick="showSection('monitor')">Monitor</button>
 </nav>
 
-<!-- Navbat olish bo‘limi -->
+<!-- Navbat olish boâ€˜limi -->
 <div id="ticket" class="section active">
   <h2>Navbat olish</h2>
   <button onclick="takeTicket()">Navbat olish</button>
-  <div id="my-ticket" class="queue-number">Sizda navbat yo‘q</div>
+  <div id="my-ticket" class="queue-number">Sizda navbat yoâ€˜q</div>
 </div>
 
-<!-- Operator bo‘limi -->
+<!-- Operator boâ€˜limi -->
 <div id="operator" class="section">
   <h2>Operator</h2>
   <button onclick="callNext()">Keyingi navbatni chaqirish</button>
   <div id="operator-call" class="queue-number">Hozircha chaqirilmagan</div>
 </div>
 
-<!-- Monitor bo‘limi -->
+<!-- Monitor boâ€˜limi -->
 <div id="monitor" class="section">
   <h2>MONITOR</h2>
   <div id="current-call">---</div>
@@ -74,7 +74,7 @@
 
   function takeTicket() {
     ticketCounter++;
-    const ticket = "N" + ticketCounter;
+    const ticket = "S" + ticketCounter;
     queue.push(ticket);
     document.getElementById("my-ticket").innerText = "Sizning navbat: " + ticket;
     channel.postMessage({type:"update", queue});
@@ -87,7 +87,7 @@
       document.getElementById("current-call").innerText = next;
       channel.postMessage({type:"call", current: next, queue});
     } else {
-      document.getElementById("operator-call").innerText = "Navbat yo‘q";
+      document.getElementById("operator-call").innerText = "Navbat yoâ€˜q";
       document.getElementById("current-call").innerText = "---";
       channel.postMessage({type:"call", current: null, queue});
     }
@@ -111,3 +111,4 @@
 
 </body>
 </html>
+
